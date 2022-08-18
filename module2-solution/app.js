@@ -14,15 +14,10 @@ function ToBuyController(ShoppingListService) {
   itemsToBuy.itemName = "";
   itemsToBuy.itemQuantity = "";
 
-
-  try {
-    itemsToBuy.items = ShoppingListService.getItems1();
-  } catch (error) {
-    itemsToBuy.errorMessage = error.message;
-  }
+  itemsToBuy.items = ShoppingListService.getItems1();
 
   itemsToBuy.addItem = function () {
-        ShoppingListService.addItem(itemsToBuy.itemName, itemsToBuy.itemQuantity);
+      ShoppingListService.addItem(itemsToBuy.itemName, itemsToBuy.itemQuantity);
   }
 
   itemsToBuy.buyItem = function (itemN,itemQ,itemIndex) {
@@ -30,22 +25,14 @@ function ToBuyController(ShoppingListService) {
       ShoppingListService.removeItem(itemIndex);
   }
 
-  itemsToBuy.errorMessage1 = function () {
-      ShoppingListService.errorMessage1(itemsToBuy.items);
-      console.log(itemsToBuy.items.length);
-    }
-
 }
 
 AlreadyBoughtController.$inject = ['ShoppingListService'];
 function AlreadyBoughtController(ShoppingListService) {
   var boughtList = this;
-
-
-    boughtList.items = ShoppingListService.getItems2();
-
-
-
+  boughtList.itemName = "";
+  boughtList.itemQuantity = "";
+  boughtList.items = ShoppingListService.getItems2();
 }
 
 
@@ -78,16 +65,12 @@ function ShoppingListService() {
 
   service.getItems1 = function () {
       return items1;
-
   };
 
   service.getItems2 = function () {
       return items2;
   };
 
-
-
 }
-
 
 })();
