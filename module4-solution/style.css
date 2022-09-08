@@ -1,11 +1,20 @@
 body {
-  font-size: 1.2em;
+  font-size: 1.0em;
 }
 
 li[ui-sref]:hover {
   display: inline-block;
   cursor: pointer;
-  border: solid black 1px;
+  border: solid green 2px;
   padding-left: 5px;
   padding-right: 5px;
+}
+
+h1 {
+  font-size: 20px;
+  color: blue;
+}
+h3 {
+  font-size: 20px;
+  color: red;
 }
