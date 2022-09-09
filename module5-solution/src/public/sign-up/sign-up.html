@@ -1,0 +1,64 @@
+<h2 class="text-center">Sign Up</h2>
+<div class="container">
+<form class="form-horizontal" name="signUpForm" novalidate>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input ng-model="signUpCtrl.myInfo.firstName" required minlength="4" ng-maxlength="20" type="text" class="form-control" id="firstName" name="firstName" placeholder="Your First Name">
+        <span ng-if="(signUpForm.firstName.$error.minlength || signUpForm.firstName.$error.required) && signUpForm.firstName.$touched" class="form-error">
+            First name must be at least 4 characters long
+        </span>
+        <span ng-if="signUpForm.firstName.$error.maxlength && signUpForm.firstName.$touched" class="form-error">
+          First name must not be longer than 20 characters
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input ng-model="signUpCtrl.myInfo.lastName" required minlength="4" ng-maxlength="20" type="text" class="form-control" id="lastName" name="lastName" placeholder="Your Last Name">
+        <span ng-if="(signUpForm.lastName.$error.minlength || signUpForm.lastName.$error.required) && signUpForm.lastName.$touched" class="form-error">
+            Last name must be at least 4 characters long
+        </span>
+        <span ng-if="signUpForm.lastName.$error.maxlength && signUpForm.lastName.$touched" class="form-error">
+          Last name must not be longer than 20 characters
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input ng-model="signUpCtrl.myInfo.email" required type="email" class="form-control" id="email" name="email" placeholder="email">
+        <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched" class="form-error">
+          Must be a valid email address: handle@domain format
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input ng-model="signUpCtrl.myInfo.phone" pattern="(\d{3})-(\d{3})-(\d{4})" required type="text" class="form-control" id="phone" name="phone" placeholder="Phone ###-###-####">
+        <span ng-if="(signUpForm.phone.$invalid || signUpForm.phone.$error.required) && signUpForm.phone.$touched" class="form-error">
+            Phone must be in the format ###-###-####.
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="form-group">
+        <label for="favoriteDish">Favorite Dish Short Name:</label>
+        <input ng-model="signUpCtrl.myInfo.favoriteDish" required type="text" class="form-control" id="favoriteDish" name="favoriteDish" placeholder="ex: A2">
+        <span ng-if="signUpForm.favoriteDish.$error.required && signUpForm.favoriteDish.$touched" class="form-error">
+            You must specify your favorite dish short name
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <button ng-disabled="signUpForm.$invalid" ng-click="signUpCtrl.submit()" class="btn btn-info">Submit</button>
+    </div>
+  </div>
+  <h4 class="text-center">{{signUpCtrl.result}}</h4>
+</form>
+</div>

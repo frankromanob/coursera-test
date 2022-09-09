@@ -1,0 +1,18 @@
+<h2 class="text-center">My Info</h2>
+<div class="container">
+  <div class="row" ng-if="myInfoCtrl.showInfo">
+    <div class="col-md-4 col-md-offset-4">
+      <span>First Name: {{myInfoCtrl.myInfo.firstName}}</span><br>
+      <span>Last Name: {{myInfoCtrl.myInfo.lastName}}</span><br>
+      <span>Email: {{myInfoCtrl.myInfo.email}}</span><br>
+      <span>Phone: {{myInfoCtrl.myInfo.phone}}</span><br>
+      <span>Favorite Dish: </span><br>
+      <span>{{myInfoCtrl.myInfo.title}}</span><br>
+      <span>{{myInfoCtrl.myInfo.description}}</span><br>
+      <img class="img-responsive" width="250" height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.myInfo.favoriteDish}}.jpg" alt="{{myInfoCtrl.myInfo.title}}">
+    </div>
+  </div>
+  <div class="row text-center" ng-if="!myInfoCtrl.showInfo">
+    <span>Not Signed Up Yet. <a ui-sref="public.signup" class="sign-up-anchor">Sign up Now!</a></span>
+  </div>
+</div>
